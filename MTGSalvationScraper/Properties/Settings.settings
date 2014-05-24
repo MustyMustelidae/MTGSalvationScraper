@@ -1,0 +1,25 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MTGSalvationScraper.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AddReprints" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DefaultCardFileLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CockatriceRegistryKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">HKEY_CURRENT_USER\Software\Cockatrice\Cockatrice\paths</Value>
+    </Setting>
+    <Setting Name="CockatriceRegistryValue" Type="System.String" Scope="User">
+      <Value Profile="(Default)">carddatabase</Value>
+    </Setting>
+    <Setting Name="DefaultCardFileNames" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;cards.xml&lt;/string&gt;
+  &lt;string&gt;card.xml&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
