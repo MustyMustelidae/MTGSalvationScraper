@@ -10,7 +10,7 @@ namespace MTGSalvationScraper
         {
             get
             {
-                return Resources.MTGSalvationJourneySpoilerUrl;
+                return Settings.Default.MTGSalvationUrl;
             }
         }
 

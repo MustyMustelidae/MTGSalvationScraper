@@ -8,8 +8,6 @@ namespace MTGSalvationScraper
 {
     class Program
     {
-        private const string SetName = "Jou";
-        private const string LongSetName = "Journey Into Nyx";
         static void Main()
         {
 
@@ -88,7 +86,9 @@ namespace MTGSalvationScraper
                 throw new ScraperException("Could not read cards.xml file.",ex);
             }
             int newCards;
-            var newFile = fileGenerator.GenerateCardFile(oldFile, SetName, LongSetName,out newCards);
+            var setName = Settings.Default.SetName;
+            var longSetName = Settings.Default.LongSetName;
+            var newFile = fileGenerator.GenerateCardFile(oldFile, setName, longSetName, out newCards);
             try
             {
                 const string backupPrefix = "bak";

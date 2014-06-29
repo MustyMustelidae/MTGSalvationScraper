@@ -21,5 +21,14 @@
   &lt;string&gt;card.xml&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="SetName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">M15</Value>
+    </Setting>
+    <Setting Name="LongSetName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">M15</Value>
+    </Setting>
+    <Setting Name="MTGSalvationUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.mtgsalvation.com/spoilers/141-magic-2015</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

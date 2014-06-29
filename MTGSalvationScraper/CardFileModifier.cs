@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text.RegularExpressions;
 using System.Xml;
 using MTGSalvationScraper.Properties;
@@ -21,9 +22,12 @@ namespace MTGSalvationScraper
             Debug.Assert(rootElement != null, "rootElement != null");
             AppendSetInfo(setName, longSetName,xmlDoc, rootElement);
             AppendCardInfo(longSetName, newCards, rootElement, xmlDoc);
-            var escapedText = HtmlStringToXmlString(xmlDoc.OuterXml);
-            return escapedText;
+          //  var escapedText = HtmlStringToXmlString(xmlDoc.OuterXml);
+            return xmlDoc.OuterXml;
         }
+
+        private static readonly char[] _colorCharacters = {'U', 'W', 'G', 'R', 'B'};
+        private const char colorlessCardCharacter = 'X';
         private static void AppendCardInfo(string setName, IEnumerable<CardElement> newCards, XmlElement rootElement, XmlDocument xmlDoc)
         {
             const string cardListElementName = "cards";
@@ -40,11 +44,13 @@ namespace MTGSalvationScraper
             const string statsElementName = "pt";
             const string tablerowElementName = "tablerow";
             const string oracleTextElementName = "text";
-
+            const string colorElementName = "color";
+            
             foreach (var newCard in newCards)
             {
+
                 var nameNode = xmlDoc.CreateNode(XmlNodeType.Element, cardNameElementName, uri);
-                nameNode.InnerText = newCard.CardName;
+                nameNode.InnerText = HtmlStringToXmlString(newCard.CardName);
                 var setNode = xmlDoc.CreateNode(XmlNodeType.Element, setElementName, uri);
                 
                 var setElement = (XmlElement) setNode;
@@ -57,9 +63,17 @@ namespace MTGSalvationScraper
                 var statsTypeNode = xmlDoc.CreateNode(XmlNodeType.Element, statsElementName, uri);
                 statsTypeNode.InnerText = newCard.Stats;
                 var oracleTextNode = xmlDoc.CreateNode(XmlNodeType.Element, oracleTextElementName, uri);
-
+                
                 oracleTextNode.InnerText = HtmlStringToXmlString(newCard.OracleText);
-
+                var cardColorNodes = (from manaCostCharacter in newCard.ManaCost.ToUpper().ToCharArray() 
+                                      where _colorCharacters.Contains(manaCostCharacter) 
+                                      select AddCardColor(xmlDoc, colorElementName, uri, manaCostCharacter))
+                                      .ToList();
+                if (cardColorNodes.Count < 1)
+                {
+                  var colorNode =    AddCardColor(xmlDoc, colorElementName, uri, colorlessCardCharacter);
+                    cardColorNodes.Add(colorNode);
+                }
                 const string landTypeName = "Land";
                 const int landRow = 0;
                 const int nonLandRow = 1;
@@ -71,6 +85,11 @@ namespace MTGSalvationScraper
                 cardNode.AppendChild(setNode);
                 cardNode.AppendChild(manaCostNode);
                 cardNode.AppendChild(cardTypeNode);
+                foreach (var cardColorNode in cardColorNodes)
+                {
+
+                    cardNode.AppendChild(cardColorNode);
+                }
                 if (!string.IsNullOrEmpty(newCard.Stats))
                 {
                     cardNode.AppendChild(statsTypeNode);
@@ -95,6 +114,13 @@ namespace MTGSalvationScraper
                 if (isOldCard) continue;
                 cardListElement.AppendChild(cardNode);
             }
+        }
+
+        private static XmlNode AddCardColor(XmlDocument xmlDoc, string colorElementName, string uri, char manaCostCharacter)
+        {
+            var colorNode = xmlDoc.CreateNode(XmlNodeType.Element, colorElementName, uri);
+            colorNode.InnerText = manaCostCharacter.ToString(CultureInfo.InvariantCulture);
+            return colorNode;
         }
 
         private static string HtmlStringToXmlString(string htmlText)

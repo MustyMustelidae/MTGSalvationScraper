@@ -124,7 +124,7 @@
     <value>Update completed, {0} cards loaded from source</value>
   </data>
   <data name="MTGSalvationJourneySpoilerUrl" xml:space="preserve">
-    <value>http://www.mtgsalvation.com/spoilers/138-journey-into-nyx</value>
+    <value>http://www.mtgsalvation.com/spoilers/139-conspiracy</value>
   </data>
   <data name="FatalErrorPrompt" xml:space="preserve">
     <value>Fatal error:{0}</value>
