@@ -79,6 +79,16 @@ namespace MTGSalvationScraper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Internal unexpected error, please share this error with the maintainer:
+        /// {0}.
+        /// </summary>
+        internal static string InternalErrorPrompt {
+            get {
+                return ResourceManager.GetString("InternalErrorPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MTG Salvation Scraper for the Ninjas, by the Ferrets. (If it stops working let Ninja Ferret know.).
         /// </summary>
         internal static string IntroString {

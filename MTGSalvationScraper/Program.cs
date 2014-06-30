@@ -10,64 +10,71 @@ namespace MTGSalvationScraper
     {
         static void Main()
         {
-
-            Console.SetWindowSize(Resources.IntroString.Length,10);
-            Console.WriteLine(Resources.IntroString);
-
-            var settingsPath = Settings.Default.DefaultCardFileLocation;
-            
-            var regKey = Settings.Default.CockatriceRegistryKey;
-            var regValue = Settings.Default.CockatriceRegistryValue;
-            var path = Registry.GetValue(regKey, regValue, settingsPath) as string;
-
-            if (string.IsNullOrWhiteSpace(path))
+            try //Not using UnhandledException event since it still shows an error dialogue, which most users will use to close the application, making the error message useless.
             {
-                Console.WriteLine(Resources.CardFilePromptString);
-                path = Console.ReadLine();
-            }
-            if (!string.IsNullOrWhiteSpace(path))
-            {
-               path = path.Replace("/", "\\");
-               path = path.Replace("\"", string.Empty);
-                path = path.Trim();
+                Console.SetWindowSize(Resources.IntroString.Length, 10);
+                Console.WriteLine(Resources.IntroString);
 
-               if (!File.Exists(path))
+                var settingsPath = Settings.Default.DefaultCardFileLocation;
+
+                var regKey = Settings.Default.CockatriceRegistryKey;
+                var regValue = Settings.Default.CockatriceRegistryValue;
+                var path = Registry.GetValue(regKey, regValue, settingsPath) as string;
+
+                if (string.IsNullOrWhiteSpace(path))
                 {
-                    const string xmlExtension = ".xml";
-                    var searchPath = Directory.Exists(path) ? path : Directory.GetCurrentDirectory();
-
-                    var xmlFiles = Directory.GetFiles(searchPath)
-                        .Where(filePath => Path.GetExtension(filePath) == xmlExtension)
-                        .ToList();
-
-                    var defaultPath = xmlFiles
-                        .FirstOrDefault(filePath => Settings.Default.DefaultCardFileNames
-                            .Contains(Path.GetFileName(filePath)));
-
-                    path = defaultPath ?? xmlFiles.FirstOrDefault();
+                    Console.WriteLine(Resources.CardFilePromptString);
+                    path = Console.ReadLine();
                 }
+                if (!string.IsNullOrWhiteSpace(path))
+                {
+                    path = path.Replace("/", "\\");
+                    path = path.Replace("\"", string.Empty);
+                    path = path.Trim();
+
+                    if (!File.Exists(path))
+                    {
+                        const string xmlExtension = ".xml";
+                        var searchPath = Directory.Exists(path) ? path : Directory.GetCurrentDirectory();
+
+                        var xmlFiles = Directory.GetFiles(searchPath)
+                            .Where(filePath => Path.GetExtension(filePath) == xmlExtension)
+                            .ToList();
+
+                        var defaultPath = xmlFiles
+                            .FirstOrDefault(filePath => Settings.Default.DefaultCardFileNames
+                                .Contains(Path.GetFileName(filePath)));
+
+                        path = defaultPath ?? xmlFiles.FirstOrDefault();
+                    }
+                }
+                if (!File.Exists(path))
+                {
+                    Console.WriteLine(Resources.InvalidLocationMessage);
+                    return;
+                }
+                try
+                {
+                    var newCards = UpdateFile(path);
+                    Console.WriteLine(Resources.UpdateSuccessPrompt, newCards);
+                }
+                catch (ScraperException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(Resources.FatalErrorPrompt, ex.Message);
+                    throw;
+                }
+
+                Console.ReadKey();
             }
-            if (!File.Exists(path))
+            catch (Exception exception)
             {
-                Console.WriteLine(Resources.InvalidLocationMessage);
-                return;
+                Console.WriteLine(Resources.InternalErrorPrompt,exception);
+                Console.ReadKey();
             }
-            try
-            {
-                var newCards = UpdateFile(path);
-                Console.WriteLine(Resources.UpdateSuccessPrompt, newCards);
-            }
-            catch (ScraperException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(Resources.FatalErrorPrompt,ex.Message);
-                throw;
-            }
-            
-            Console.ReadKey();
         }
 
         public static int UpdateFile(string path)

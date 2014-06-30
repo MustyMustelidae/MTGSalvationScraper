@@ -135,4 +135,8 @@
   <data name="InvalidLocationMessage" xml:space="preserve">
     <value>Invalid cards.xml location</value>
   </data>
+  <data name="InternalErrorPrompt" xml:space="preserve">
+    <value>Internal unexpected error, please share this error with the maintainer:
+ {0}</value>
+  </data>
 </root>
