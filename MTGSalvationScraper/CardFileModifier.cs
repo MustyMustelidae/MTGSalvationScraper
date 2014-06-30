@@ -126,6 +126,7 @@ namespace MTGSalvationScraper
         private static string HtmlStringToXmlString(string htmlText)
         {
             const string htmlApostrophe = "&amp;#x27;";
+            const string htmlApostropheSpecial = "&#x27;";
             const string xmlApostrophe = "'";
             const string htmlArrow = "â€”";
             const string xmlArrow = "—";
@@ -133,6 +134,7 @@ namespace MTGSalvationScraper
             const string xmlWideSpace = " ";
             htmlText = htmlText.Trim();
             htmlText = htmlText.Replace(htmlApostrophe, xmlApostrophe);
+            htmlText = htmlText.Replace(htmlApostropheSpecial, xmlApostrophe);
             htmlText = htmlText.Replace(htmlWideSpace, xmlWideSpace);
 
             htmlText = Regex.Replace(htmlText, @"( |\r?\n)\1+", "\n");
