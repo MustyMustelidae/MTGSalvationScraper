@@ -1,4 +1,5 @@
-﻿using System;
+﻿#define SUMMER_MAGIC 
+using System;
 using System.IO;
 using System.Linq;
 using Microsoft.Win32;
@@ -20,17 +21,13 @@ namespace MTGSalvationScraper
                 var regKey = Settings.Default.CockatriceRegistryKey;
                 var regValue = Settings.Default.CockatriceRegistryValue;
                 var path = Registry.GetValue(regKey, regValue, settingsPath) as string;
-
-                if (string.IsNullOrWhiteSpace(path))
-                {
-                    Console.WriteLine(Resources.CardFilePromptString);
-                    path = Console.ReadLine();
-                }
+              
+                
                 if (!string.IsNullOrWhiteSpace(path))
                 {
-                    path = path.Replace("/", "\\");
-                    path = path.Replace("\"", string.Empty);
-                    path = path.Trim();
+                    path = path.Replace("/", "\\").
+                        Replace("\"", string.Empty)
+                        .Trim();
 
                     if (!File.Exists(path))
                     {
@@ -40,7 +37,7 @@ namespace MTGSalvationScraper
                         var xmlFiles = Directory.GetFiles(searchPath)
                             .Where(filePath => Path.GetExtension(filePath) == xmlExtension)
                             .ToList();
-
+                        xmlFiles.RemoveAll(filePath => !Settings.Default.DefaultCardFileNames.Contains(filePath));
                         var defaultPath = xmlFiles
                             .FirstOrDefault(filePath => Settings.Default.DefaultCardFileNames
                                 .Contains(Path.GetFileName(filePath)));
@@ -48,10 +45,17 @@ namespace MTGSalvationScraper
                         path = defaultPath ?? xmlFiles.FirstOrDefault();
                     }
                 }
-                if (!File.Exists(path))
+                if (string.IsNullOrWhiteSpace(path) || !File.Exists(path))
                 {
-                    Console.WriteLine(Resources.InvalidLocationMessage);
-                    return;
+                   
+                        Console.WriteLine(Resources.CardFilePromptString);
+                        path = Console.ReadLine();
+                    if (string.IsNullOrWhiteSpace(path) || !File.Exists(path))
+                    {
+                        Console.WriteLine(Resources.InvalidLocationMessage);
+                        Console.ReadLine();
+                        return;
+                    }
                 }
                 try
                 {
@@ -81,7 +85,12 @@ namespace MTGSalvationScraper
         {
             var dataProvider = new MtgSalvationCardDataProvider();
             var parser = new MtgSalvationCardDataParser();
-            var modifier = new CardFileModifier();
+#if SUMMER_MAGIC
+            var modifier = new SummerMagicCardFileModifier();
+#else
+            var modifier = new CockatriceCardFileModifier();
+#endif
+           
             var fileGenerator = new CardFileGenerator(dataProvider, parser, modifier);
             string oldFile;
             try
