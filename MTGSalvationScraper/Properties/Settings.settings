@@ -21,14 +21,33 @@
   &lt;string&gt;card.xml&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
-    <Setting Name="SetName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">M15</Value>
-    </Setting>
     <Setting Name="LongSetName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">M15</Value>
+      <Value Profile="(Default)">Khans of Tarkir</Value>
+    </Setting>
+    <Setting Name="SetName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">KTK</Value>
     </Setting>
     <Setting Name="MTGSalvationUrl" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://www.mtgsalvation.com/spoilers/141-magic-2015</Value>
+      <Value Profile="(Default)">http://www.mtgsalvation.com/spoilers/144-khans-of-tarkir</Value>
+    </Setting>
+    <Setting Name="LastCardFileLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SummerMagicAppDataRelativeFilePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cockatrice\\Cockatrice\\cards.xml</Value>
+    </Setting>
+    <Setting Name="CockatriceCardFileExtension" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;.xml&lt;/string&gt;
+  &lt;string&gt;.txt&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="CardFileParameterIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

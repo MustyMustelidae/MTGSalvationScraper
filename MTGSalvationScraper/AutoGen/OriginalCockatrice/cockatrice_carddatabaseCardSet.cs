@@ -1,3 +1,4 @@
+#region Windows Form Designer generated code
 using System.Xml.Serialization;
 using cockatrice_carddatabase = MTGSalvationScraper.AutoGen.OriginalCockatrice.cockatrice_carddatabase;
 using cockatrice_carddatabaseCard = MTGSalvationScraper.AutoGen.OriginalCockatrice.cockatrice_carddatabaseCard;
@@ -10,59 +11,73 @@ namespace MTGSalvationScraper.AutoGen.OriginalCockatrice
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [XmlType(AnonymousType=true)]
-    public partial class cockatrice_carddatabaseCardSet {
-    
+    [XmlType(AnonymousType = true)]
+    public partial class cockatrice_carddatabaseCardSet
+    {
+
         private string picURLField;
-    
+
         private string picURLHqField;
-    
+
         private string picURLStField;
-    
+
         private string valueField;
-    
+
         /// <remarks/>
         [XmlAttribute()]
-        public string picURL {
-            get {
+        public string picURL
+        {
+            get
+            {
                 return this.picURLField;
             }
-            set {
+            set
+            {
                 this.picURLField = value;
             }
         }
-    
+
         /// <remarks/>
         [XmlAttribute()]
-        public string picURLHq {
-            get {
+        public string picURLHq
+        {
+            get
+            {
                 return this.picURLHqField;
             }
-            set {
+            set
+            {
                 this.picURLHqField = value;
             }
         }
-    
+
         /// <remarks/>
         [XmlAttribute()]
-        public string picURLSt {
-            get {
+        public string picURLSt
+        {
+            get
+            {
                 return this.picURLStField;
             }
-            set {
+            set
+            {
                 this.picURLStField = value;
             }
         }
-    
+
         /// <remarks/>
         [XmlText()]
-        public string Value {
-            get {
+        public string Value
+        {
+            get
+            {
                 return this.valueField;
             }
-            set {
+            set
+            {
                 this.valueField = value;
             }
         }
     }
-}
+} 
+#endregion

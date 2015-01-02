@@ -1,3 +1,4 @@
+#region Windows Form Designer generated code
 using System.Xml.Serialization;
 using cockatrice_carddatabase = MTGSalvationScraper.AutoGen.SummerMagic.cockatrice_carddatabase;
 using cockatrice_carddatabaseCard = MTGSalvationScraper.AutoGen.SummerMagic.cockatrice_carddatabaseCard;
@@ -63,4 +64,5 @@ namespace MTGSalvationScraper.AutoGen.SummerMagic
             }
         }
     }
-}
+} 
+#endregion

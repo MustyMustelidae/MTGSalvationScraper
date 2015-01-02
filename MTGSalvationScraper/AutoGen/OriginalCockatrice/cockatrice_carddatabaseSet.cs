@@ -1,3 +1,4 @@
+#region Windows Form Designer generated code
 using System.Xml.Serialization;
 using cockatrice_carddatabase = MTGSalvationScraper.AutoGen.OriginalCockatrice.cockatrice_carddatabase;
 using cockatrice_carddatabaseCard = MTGSalvationScraper.AutoGen.OriginalCockatrice.cockatrice_carddatabaseCard;
@@ -10,31 +11,39 @@ namespace MTGSalvationScraper.AutoGen.OriginalCockatrice
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [XmlType(AnonymousType=true)]
-    public partial class cockatrice_carddatabaseSet {
-    
+    [XmlType(AnonymousType = true)]
+    public partial class cockatrice_carddatabaseSet
+    {
+
         private string nameField;
-    
+
         private string longnameField;
-    
+
         /// <remarks/>
-        public string name {
-            get {
+        public string name
+        {
+            get
+            {
                 return this.nameField;
             }
-            set {
+            set
+            {
                 this.nameField = value;
             }
         }
-    
+
         /// <remarks/>
-        public string longname {
-            get {
+        public string longname
+        {
+            get
+            {
                 return this.longnameField;
             }
-            set {
+            set
+            {
                 this.longnameField = value;
             }
         }
     }
-}
+} 
+#endregion

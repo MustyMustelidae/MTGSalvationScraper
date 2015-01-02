@@ -6,14 +6,15 @@ using HtmlAgilityPack;
 
 namespace MTGSalvationScraper
 {
-    internal class MtgSalvationCardDataParser : ICardDataParser
+    public class MtgSalvationCardDataParserV1 : IMtgSalvationCardDataParser
     {
-        public IEnumerable<CardElement> ParseElements(string siteData)
+        public IEnumerable<CardElement> ParseElements(string unparsedData)
         {
             try
             {
+                IEnumerable<CardElement> test = new List<CardElement>();
                 var htmlDoc = new HtmlDocument();
-                htmlDoc.LoadHtml(siteData);
+                htmlDoc.LoadHtml(unparsedData);
                 const string spoilerRootClassName = "t-spoiler-wrapper";
                 var spoilerRootElements =
                     htmlDoc.DocumentNode.SearchChildNodesByAttributes(
@@ -26,7 +27,7 @@ namespace MTGSalvationScraper
                 throw new CardDataParserException("Parsing card data failed", ex);
             }
         }
-
+        //Todo: Clean up this mess
         private static CardElement ExtractNewCardFromNode(HtmlNode spoilerRoot)
         {
             const string cardNameElementClassName = "t-spoiler";

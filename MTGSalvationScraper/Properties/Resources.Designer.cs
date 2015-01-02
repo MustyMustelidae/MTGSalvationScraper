@@ -61,6 +61,16 @@ namespace MTGSalvationScraper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Backing up cards.xml to {0}. When the full set is spoiled restore this file and use offical methods to update.
+        ///.
+        /// </summary>
+        internal static string BackupPrompt {
+            get {
+                return ResourceManager.GetString("BackupPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter cards.xml path: .
         /// </summary>
         internal static string CardFilePromptString {
@@ -70,11 +80,106 @@ namespace MTGSalvationScraper.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parsed {0} new cards.
+        ///.
+        /// </summary>
+        internal static string CardsParsedPrompt {
+            get {
+                return ResourceManager.GetString("CardsParsedPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parsing new cards..
+        /// </summary>
+        internal static string CardsParsingPrompt {
+            get {
+                return ResourceManager.GetString("CardsParsingPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checking this folder for a card file to modify..
+        /// </summary>
+        internal static string CurrentFolderSearchPrompt {
+            get {
+                return ResourceManager.GetString("CurrentFolderSearchPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checking default cockatrice location for card file..
+        /// </summary>
+        internal static string DefaultCardFileSearchPrompt {
+            get {
+                return ResourceManager.GetString("DefaultCardFileSearchPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checking default summer magic cockatrice location for card file..
+        /// </summary>
+        internal static string DefaultCockatriceCardFileSearchPrompt {
+            get {
+                return ResourceManager.GetString("DefaultCockatriceCardFileSearchPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fatal error:{0}.
         /// </summary>
         internal static string FatalErrorPrompt {
             get {
                 return ResourceManager.GetString("FatalErrorPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading card data from source (This might take a minute depending on your internet speed).
+        ///.
+        /// </summary>
+        internal static string FetchingDataPrompt {
+            get {
+                return ResourceManager.GetString("FetchingDataPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not find the card.xml file automatically.
+        ///.
+        /// </summary>
+        internal static string FileSearchFailedPrompt {
+            get {
+                return ResourceManager.GetString("FileSearchFailedPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found a card.xml file: {0}
+        ///.
+        /// </summary>
+        internal static string FoundFilePrompt {
+            get {
+                return ResourceManager.GetString("FoundFilePrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generated new card.xml.
+        ///.
+        /// </summary>
+        internal static string GeneratedCardsPrompt {
+            get {
+                return ResourceManager.GetString("GeneratedCardsPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Generating new card.xml..
+        /// </summary>
+        internal static string GeneratingCardsPrompt {
+            get {
+                return ResourceManager.GetString("GeneratingCardsPrompt", resourceCulture);
             }
         }
         
@@ -98,7 +203,8 @@ namespace MTGSalvationScraper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Invalid cards.xml location.
+        ///   Looks up a localized string similar to 
+        ///Invalid cards.xml location.
         /// </summary>
         internal static string InvalidLocationMessage {
             get {
@@ -116,11 +222,69 @@ namespace MTGSalvationScraper.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update completed, {0} cards loaded from source.
+        ///   Looks up a localized string similar to Checking for previously stored card.xml location..
+        /// </summary>
+        internal static string PreviousLocationSearchPrompt {
+            get {
+                return ResourceManager.GetString("PreviousLocationSearchPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reminder: When the set is fully spoiled rename {0} to {1} and use Oracle..
+        /// </summary>
+        internal static string RestoreBackupReminder {
+            get {
+                return ResourceManager.GetString("RestoreBackupReminder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///Original cards.xml restored.Use oracle to update now..
+        /// </summary>
+        internal static string RestoreCompleteRestored {
+            get {
+                return ResourceManager.GetString("RestoreCompleteRestored", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///Restore your original cards.xml now? (Enter {0} to restore it, or press enter).
+        /// </summary>
+        internal static string RestoreXmlPrompt {
+            get {
+                return ResourceManager.GetString("RestoreXmlPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checking default summer magic cockatrice location for card file..
+        /// </summary>
+        internal static string SummerMagicCardFileSearchPrompt {
+            get {
+                return ResourceManager.GetString("SummerMagicCardFileSearchPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///Update completed, {0} cards loaded from source (You may need to clear your downloaded images to see any new art for cards you already had).
         /// </summary>
         internal static string UpdateSuccessPrompt {
             get {
                 return ResourceManager.GetString("UpdateSuccessPrompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ***Note*** this version is only for {0}
+        ///.
+        /// </summary>
+        internal static string VersionReminderPrompt {
+            get {
+                return ResourceManager.GetString("VersionReminderPrompt", resourceCulture);
             }
         }
     }

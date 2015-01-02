@@ -10,153 +10,190 @@ namespace MTGSalvationScraper.AutoGen.OriginalCockatrice
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [XmlType(AnonymousType=true)]
-    public partial class cockatrice_carddatabaseCard {
-    
+    [XmlType(AnonymousType = true)]
+    public partial class cockatrice_carddatabaseCard
+    {
+
         private string nameField;
-    
+
         private cockatrice_carddatabaseCardSet[] setField;
-    
+
         private string[] colorField;
-    
+
         private string manacostField;
-    
+
         private string typeField;
-    
+
         private string ptField;
-    
+
         private byte tablerowField;
-    
+
         private string textField;
-    
+
         private byte loyaltyField;
-    
+
         private bool loyaltyFieldSpecified;
-    
+
         private byte ciptField;
-    
+
         private bool ciptFieldSpecified;
-    
+
         /// <remarks/>
-        public string name {
-            get {
+        public string name
+        {
+            get
+            {
                 return this.nameField;
             }
-            set {
+            set
+            {
                 this.nameField = value;
             }
         }
-    
+
         /// <remarks/>
         [XmlElement("set")]
-        public cockatrice_carddatabaseCardSet[] set {
-            get {
+        public cockatrice_carddatabaseCardSet[] set
+        {
+            get
+            {
                 return this.setField;
             }
-            set {
+            set
+            {
                 this.setField = value;
             }
         }
-    
+
         /// <remarks/>
         [XmlElement("color")]
-        public string[] color {
-            get {
+        public string[] color
+        {
+            get
+            {
                 return this.colorField;
             }
-            set {
+            set
+            {
                 this.colorField = value;
             }
         }
-    
+
         /// <remarks/>
-        public string manacost {
-            get {
+        public string manacost
+        {
+            get
+            {
                 return this.manacostField;
             }
-            set {
+            set
+            {
                 this.manacostField = value;
             }
         }
-    
+
         /// <remarks/>
-        public string type {
-            get {
+        public string type
+        {
+            get
+            {
                 return this.typeField;
             }
-            set {
+            set
+            {
                 this.typeField = value;
             }
         }
-    
+
         /// <remarks/>
-        public string pt {
-            get {
+        public string pt
+        {
+            get
+            {
                 return this.ptField;
             }
-            set {
+            set
+            {
                 this.ptField = value;
             }
         }
-    
+
         /// <remarks/>
-        public byte tablerow {
-            get {
+        public byte tablerow
+        {
+            get
+            {
                 return this.tablerowField;
             }
-            set {
+            set
+            {
                 this.tablerowField = value;
             }
         }
-    
+
         /// <remarks/>
-        public string text {
-            get {
+        public string text
+        {
+            get
+            {
                 return this.textField;
             }
-            set {
+            set
+            {
                 this.textField = value;
             }
         }
-    
+
         /// <remarks/>
-        public byte loyalty {
-            get {
+        public byte loyalty
+        {
+            get
+            {
                 return this.loyaltyField;
             }
-            set {
+            set
+            {
                 this.loyaltyField = value;
             }
         }
-    
+
         /// <remarks/>
         [XmlIgnore()]
-        public bool loyaltySpecified {
-            get {
+        public bool loyaltySpecified
+        {
+            get
+            {
                 return this.loyaltyFieldSpecified;
             }
-            set {
+            set
+            {
                 this.loyaltyFieldSpecified = value;
             }
         }
-    
+
         /// <remarks/>
-        public byte cipt {
-            get {
+        public byte cipt
+        {
+            get
+            {
                 return this.ciptField;
             }
-            set {
+            set
+            {
                 this.ciptField = value;
             }
         }
-    
+
         /// <remarks/>
         [XmlIgnore()]
-        public bool ciptSpecified {
-            get {
+        public bool ciptSpecified
+        {
+            get
+            {
                 return this.ciptFieldSpecified;
             }
-            set {
+            set
+            {
                 this.ciptFieldSpecified = value;
             }
         }

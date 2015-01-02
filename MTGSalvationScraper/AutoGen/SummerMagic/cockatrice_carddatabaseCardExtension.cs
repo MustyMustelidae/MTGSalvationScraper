@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#region Windows Form Designer generated code
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -12,7 +13,7 @@ namespace MTGSalvationScraper.AutoGen.SummerMagic
     {
         private const char colorlessCardCharacter = 'X';
         private static readonly Regex digitsOnly = new Regex(@"[^\d]");
-        private static readonly char[] _colorCharacters = {'U', 'W', 'G', 'R', 'B'};
+        private static readonly char[] _colorCharacters = { 'U', 'W', 'G', 'R', 'B' };
         public cockatrice_carddatabaseCard() { }
         public cockatrice_carddatabaseCard(IEnumerable<cockatrice_carddatabaseCardSet> cardSets,
             CardElement sourceCardElement)
@@ -30,6 +31,7 @@ namespace MTGSalvationScraper.AutoGen.SummerMagic
         }
         private static string HtmlStringToXmlString(string htmlText)
         {
+            if (string.IsNullOrWhiteSpace(htmlText)) return htmlText;
             const string htmlApostrophe = "&amp;#x27;";
             const string htmlApostropheSpecial = "&#x27;";
             const string xmlApostrophe = "'";
@@ -53,7 +55,7 @@ namespace MTGSalvationScraper.AutoGen.SummerMagic
         private void ColorFromCardElement(CardElement sourceCardElement)
         {
             string[] cardColorNodes = (from manaCostCharacter in sourceCardElement.ManaCost.ToUpper().ToCharArray()
-                where _colorCharacters.Contains(manaCostCharacter)
+                                       where _colorCharacters.Contains(manaCostCharacter)
                                        select manaCostCharacter.ToString(CultureInfo.InvariantCulture))
                                        .GroupBy(character => character)
                                        .Select(character => character.First())
@@ -61,7 +63,7 @@ namespace MTGSalvationScraper.AutoGen.SummerMagic
             if (!cardColorNodes.Any())
             {
                 string colorNode = colorlessCardCharacter.ToString();
-                cardColorNodes = new[] {colorNode};
+                cardColorNodes = new[] { colorNode };
             }
             color = cardColorNodes.ToArray();
         }
@@ -99,4 +101,5 @@ namespace MTGSalvationScraper.AutoGen.SummerMagic
                 : nonLandRow;
         }
     }
-}
+} 
+#endregion

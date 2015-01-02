@@ -1,14 +1,15 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text.RegularExpressions;
 using System.Xml;
 using MTGSalvationScraper.Properties;
 
-namespace MTGSalvationScraper
+namespace MTGSalvationScraper.Obsolete
 {
+    [Obsolete]
     class CardFileModifier : ICardFileModifier
     {
         public string AugmentCards(string setName,string longSetName,string xmlData, IEnumerable<CardElement> newCards)

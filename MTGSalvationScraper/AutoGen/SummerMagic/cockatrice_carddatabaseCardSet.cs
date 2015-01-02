@@ -1,3 +1,4 @@
+#region Windows Form Designer generated code
 using System.Xml.Serialization;
 using cockatrice_carddatabase = MTGSalvationScraper.AutoGen.SummerMagic.cockatrice_carddatabase;
 using cockatrice_carddatabaseCard = MTGSalvationScraper.AutoGen.SummerMagic.cockatrice_carddatabaseCard;
@@ -13,6 +14,55 @@ namespace MTGSalvationScraper.AutoGen.SummerMagic
     [XmlType(AnonymousType = true)]
     public partial class cockatrice_carddatabaseCardSet
     {
+
+        private string picURLField;
+
+        private string picURLHqField;
+
+        private string picURLStField;
+
+
+        /// <remarks/>
+        [XmlAttribute()]
+        public string picURL
+        {
+            get
+            {
+                return this.picURLField;
+            }
+            set
+            {
+                this.picURLField = value;
+            }
+        }
+
+        /// <remarks/>
+        [XmlAttribute()]
+        public string picURLHq
+        {
+            get
+            {
+                return this.picURLHqField;
+            }
+            set
+            {
+                this.picURLHqField = value;
+            }
+        }
+
+        /// <remarks/>
+        [XmlAttribute()]
+        public string picURLSt
+        {
+            get
+            {
+                return this.picURLStField;
+            }
+            set
+            {
+                this.picURLStField = value;
+            }
+        }
 
         private uint muIdField;
 
@@ -46,4 +96,5 @@ namespace MTGSalvationScraper.AutoGen.SummerMagic
             }
         }
     }
-}
+} 
+#endregion

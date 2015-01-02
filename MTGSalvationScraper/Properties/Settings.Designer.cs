@@ -13,7 +13,7 @@ namespace MTGSalvationScraper.Properties {
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -87,19 +87,7 @@ namespace MTGSalvationScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("M15")]
-        public string SetName {
-            get {
-                return ((string)(this["SetName"]));
-            }
-            set {
-                this["SetName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("M15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Khans of Tarkir")]
         public string LongSetName {
             get {
                 return ((string)(this["LongSetName"]));
@@ -111,13 +99,87 @@ namespace MTGSalvationScraper.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://www.mtgsalvation.com/spoilers/141-magic-2015")]
+        [global::System.Configuration.DefaultSettingValueAttribute("KTK")]
+        public string SetName {
+            get {
+                return ((string)(this["SetName"]));
+            }
+            set {
+                this["SetName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.mtgsalvation.com/spoilers/144-khans-of-tarkir")]
         public string MTGSalvationUrl {
             get {
                 return ((string)(this["MTGSalvationUrl"]));
             }
             set {
                 this["MTGSalvationUrl"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LastCardFileLocation {
+            get {
+                return ((string)(this["LastCardFileLocation"]));
+            }
+            set {
+                this["LastCardFileLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cockatrice\\\\Cockatrice\\\\cards.xml")]
+        public string SummerMagicAppDataRelativeFilePath {
+            get {
+                return ((string)(this["SummerMagicAppDataRelativeFilePath"]));
+            }
+            set {
+                this["SummerMagicAppDataRelativeFilePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<?xml version=\"1.0\" encoding=\"utf-16\"?>\r\n<ArrayOfString xmlns:xsi=\"http://www.w3." +
+            "org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">\r\n  <s" +
+            "tring>.xml</string>\r\n  <string>.txt</string>\r\n</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection CockatriceCardFileExtension {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["CockatriceCardFileExtension"]));
+            }
+            set {
+                this["CockatriceCardFileExtension"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int CardFileParameterIndex {
+            get {
+                return ((int)(this["CardFileParameterIndex"]));
+            }
+            set {
+                this["CardFileParameterIndex"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Setting {
+            get {
+                return ((string)(this["Setting"]));
+            }
+            set {
+                this["Setting"] = value;
             }
         }
     }

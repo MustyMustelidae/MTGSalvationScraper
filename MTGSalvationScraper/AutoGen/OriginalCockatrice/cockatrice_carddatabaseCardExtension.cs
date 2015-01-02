@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region Windows Form Designer generated code
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace MTGSalvationScraper.AutoGen.OriginalCockatrice
             type = HtmlStringToXmlString(sourceCardElement.Type);
             manacost = sourceCardElement.ManaCost;
             name = HtmlStringToXmlString(sourceCardElement.CardName);
-            
+
             ColorFromCardElement(sourceCardElement);
             TableRowFromCardElement(sourceCardElement);
             StatsFromCardElement(sourceCardElement);
@@ -102,3 +103,5 @@ namespace MTGSalvationScraper.AutoGen.OriginalCockatrice
         }
     }
 }
+
+#endregion

@@ -9,11 +9,4 @@ namespace MTGSalvationScraper
         {
         }
     }
-    public class ScraperException : Exception
-    {
-        public ScraperException(string message, Exception innerException)
-            : base(message, innerException)
-        {
-        }
-    }
 }
